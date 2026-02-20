@@ -1,0 +1,42 @@
+﻿// app06 - 이전 소수 계산에서 나머지 횟수가 78022회
+// 합성수로는 나눌 필요가 없으므로 나누기 횟수를 줄일 수 있음
+// 해당 소스로 실행하면 나누기 횟수가 14622 회로 줄어듬
+// 메모리 사용량 : 2020byte
+
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	int prime[500];		// 이전 계산한 소수 저장하는 배열
+	int prime_cnt = 0;		// 소수의 개수
+	unsigned long count = 0;
+	prime[prime_cnt++] = 2;
+
+	for (int n = 3; n <= 1000; n += 2) {
+		int i;
+		for (i = 1; i < prime_cnt; i++) {
+			count++;
+
+			if (n % prime[i] == 0) {	// 소수가 아님
+				break;
+			}
+		}
+
+		if (prime_cnt == i) {
+			prime[prime_cnt++] = n;		// 마지막까지 나누어지지 않으면 소수배열 저장
+		}
+	}
+
+	// 출력은 따로
+	for (int i = 0; i < prime_cnt; i++) {
+		printf("%d\n", prime[i]);
+	}
+
+	printf("1~1000사이 소수 개수: %u\n", prime_cnt);
+	printf("나눗셈 실행 횟수 : %lu\n", count);
+
+	return 0;
+}
