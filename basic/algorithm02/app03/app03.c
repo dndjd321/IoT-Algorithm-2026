@@ -22,12 +22,15 @@ int main() {
 	// 무한 루프
 	while (1) {
 		// 스택 기능 구현
-		int menu;
-		int x;
+		int menu, x, ch;
 
 		printf("현재 데이터 수 : %d / %d\n", Size(&st), Capacity(&st));
 		printf("(1)PUSH, (2)POP, (3)PEEK, (4)OUTPUT, (5)SEARCH, (6)CLEAR, (0)EXIT > ");
 		scanf("%d", &menu);
+
+		// 잘못된 키보드 입력 버퍼 제거
+		// 기초 프로그래밍 주소록 토이프로젝트 소스 참조함.
+		while ((ch = getchar()) != '\n' && ch != EOF) {}
 
 		// EXIT ( 종료 ) 처리
 		if (menu == 0) break;
