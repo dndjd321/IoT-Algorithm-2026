@@ -19,10 +19,12 @@ int main() {
 		return 1;	// exit(1);
 	}
 
+	int menu, x, ch;
+
 	// 무한 루프
 	while (1) {
 		// 스택 기능 구현
-		int menu, x, ch;
+		menu = -1;
 
 		printf("현재 데이터 수 : %d / %d\n", Size(&st), Capacity(&st));
 		printf("(1)PUSH, (2)POP, (3)PEEK, (4)OUTPUT, (5)SEARCH, (6)CLEAR, (0)EXIT > ");

@@ -15,9 +15,11 @@ int main() {
 		return 1;	// exit(1);
 	}
 
+	int menu, x, ch;
+
 	while (1) {
 
-		int menu, x, ch;
+		menu = -1;
 
 		printf("현재 데이터 수 : %d / %d\n", Size(&que), Capacity(&que));
 		printf("(1)ENQUE, (2)DEQUE, (3)PEEK, (4)OUTPUT, (0)EXIT >> ");
