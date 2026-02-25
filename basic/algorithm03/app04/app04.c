@@ -6,8 +6,13 @@
 
 #include <stdio.h>
 
+// 함수호출횟수 카운트 변수
+int callCount = 0;
+
 /*====== 재귀함수 recur 선언과 정의 ======*/
 void recur(int n) {
+
+	callCount++;	// 함수호출횟수 증가
 
 	// 종료 조건 : n이 0이하로 떨어지면 종료
 	if (n > 0) {	
@@ -28,9 +33,12 @@ int main() {
 
 		if (x <= 0) break;
 		
+		callCount = 0;	// 입력 받을 때마다 초기화
 		recur(x);
-
+		printf("함수 총 호출 횟수 : %d\n\n",callCount);
 	}
+
+
 
 	return 0;
 }
